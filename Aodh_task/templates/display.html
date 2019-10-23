@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<form method="POST">
+		<h1>helth issus</h1>
+		{% csrf_token %}
+		{{ Emp.as_p }}
+
+	</form>
+	<table border="1">
+		<thead>
+        	<th>id</th>
+			<th>heartbeat</th>
+			<th>himoglobin</th>
+			<th>breathingrate</th>
+
+		</thead>
+		{% for i in data %}
+		<tr><td>{{i.id}}</td>
+			<td>{{i.heartbeat}}</td>
+			<td>{{i.himoglobin}}</td>
+			<td>{{i.breathingrate}}</td>
+		</tr>
+          <p>{% if heartbeat < 70  and himoglobin < 60 and  breathingrate < 10 %}
+              will not die 7aya</p>
+    will die within 7 days
+{% endif %}
+		{% endfor %}
+
+	</table>
+    {% block helth %}
+{% if heartbeat < 70  and himoglobin < 60 and  breathingrate < 10 %}
+    will die within 7 days
+{% endif %}{% endblock %}
+</body>
+</html>
+</body>
+</html>
